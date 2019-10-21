@@ -1,4 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var path = require('path');
 
 module.exports = {
@@ -27,7 +29,46 @@ module.exports = {
                 enforce: "pre",
                 test: /\.js$/,
                 loader: "source-map-loader"
-            }
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true, // webpack@1.x
+                            disable: true, // webpack@2.x and newer
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                  {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                      hmr: process.env.NODE_ENV === 'development',
+                    },
+                  },
+                  'css-loader',
+                  'postcss-loader',
+                  'sass-loader',
+                ],
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }
+                ]
+              }
         ]
     },
 
@@ -41,15 +82,23 @@ module.exports = {
                 {"charset": "utf-8"},
                 {"name": "author"},
                 {"http-equiv": "x-ua-compatible", "content": "ie=edge"},
-                {"name": "viewport", "content": "width=device-width, initial-scale=1"}
+                {"name": "viewport", "content": "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"}
             ]
         }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // all options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+            ignoreOrder: false, // Enable to remove warnings about conflicting order
+          }),
+        // new BundleAnalyzerPlugin()
     ],
 
     devtool: "source-map",
 
     resolve: {
-        extensions: [".ts", ".tsx"]
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
 
     // externals: {
