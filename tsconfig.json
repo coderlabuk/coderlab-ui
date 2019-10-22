@@ -3,6 +3,7 @@
         "baseUrl": "./src",
         "outDir": "./dist/",
         "module": "commonjs",
+        "esModuleInterop": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "noUnusedLocals": true,

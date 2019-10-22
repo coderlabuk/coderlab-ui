@@ -7,10 +7,9 @@
     <% _.each(htmlWebpackPlugin.options.metas, function(meta) { %>
     <meta <% Object.keys(meta).forEach(function(attr) {%>${ attr }="${ meta[attr] }" <% }); %>/>
     <% }); %>
-    
-    <% _.each(htmlWebpackPlugin.options.links, function(link) { %>
-    <link href=${ link.href } rel="stylesheet" />
-    <% }); %>
+
+
+    <link rel="stylesheet" href="main.css">
 
     <title><%= htmlWebpackPlugin.options.title %></title>
 

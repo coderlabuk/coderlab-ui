@@ -1,73 +1,58 @@
-import * as React from 'react';
-// import { Link } from "react-router-dom"
+import React, { FunctionComponent } from 'react'; 
 import Slider from 'react-slick';
+import { Typography, makeStyles } from '@material-ui/core'
 
-require("slick-carousel/slick/slick.scss")
-require("slick-carousel/slick/slick-theme.scss")
+interface Panel {
+    id: number
+    title: string
+    subtitle: any
+    img: string
+    bgColor?: string
+    url?: string
+}
 
+type ImageProps = {
+    img: string
+    bgColor?: string
+    url?: string
+}
 
-// interface ArrowBoxProps {
-//     url: string
-//     text: string
-//     color: string
-// }
+const useStyles = makeStyles({
+    image: (props: ImageProps) => ({
+        backgroundColor: props.bgColor ? props.bgColor : "transparent",
+        backgroundImage: `url(${props.img})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        height: "500px",
+        width: "100%"
+    }),
+    overlay: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+        color: 'white',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    textContainer: {
+        textAlign: 'center',
+    }
+})
 
-// const ArrowBox = (props: ArrowBoxProps) => {
-
-//     let hoverClass = props.color === "white" ? "bg-hover-white" : "hover-invert";
-//     let borderStyle = `2px solid ${props.color}`;
-
-//     return (
-//         <div className="row justify-center align-center" style={{color: props.color || "white"}}>
-//             <Link to={url} className={`text-decoration-none ${props.props.color}`}> 
-//                 <div className={`text-center padding-y-sm padding-x-md ${hoverClass}`} 
-//                     style={{border: borderStyle}}>
-//                     <div className="row align-center font-size-lg">
-//                         <span>{props.text}</span>&nbsp;&nbsp;<i className="material-icons arrow-R">arrow_forward</i>
-//                     </div>
-//                 </div>
-
-//             </Link>
-
-//         </div>
-
-//     );
-// }
-
-
-
-// const getImgStyle = (img: string, bgColor: string)=> {
-//     return {
-//         backgroundColor: bgColor,
-//         backgroundImage: `url(${img})`,
-//         backgroundSize: "cover",
-//         backgroundRepeat: "no-repeat",
-//         backgroundPosition: "center",
-//         height: "500px",
-//         width: "100%"
-//     }
-// }
-
-// interface ImagePanelProps {
-//     img: string
-//     children: any
-//     className: string
-//     bgColor: string
-// }
-
-// const ImagePanel = (props: ImagePanelProps) => {    
-//     return (
-//         <div style={getImgStyle(props.img, props.bgColor)}>
-//             <div className={`width-100 height-100 ${props.className}`}>
-//                 <div className="row justify-center align-center height-100">
-//                     <div className="text-center padding-x-sm margin-y-xxl">
-//                         {props.children}
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
+const ImagePanel: FunctionComponent<ImageProps> = props => { 
+    const styles = useStyles(props)   
+    return (
+        <div className={styles.image}>
+            <div className={styles.overlay}>
+                <div className={styles.textContainer}>
+                    {props.children}
+                </div>
+            </div>
+        </div>
+    );
+}
 
 
 export const ImageSlider = (props: any) => {
@@ -75,67 +60,47 @@ export const ImageSlider = (props: any) => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 200,
-        autoplay: true,
+        speed: 400,
+        autoplay: false,
         pauseOnHover: false
     };
 
-    let unityLogo = <div className="img-unity-logo margin-bottom-lg"></div>;
-
-    const data = [
-
-        {
-            id: 1,
-            title: "Full stack development",
-            subtitle: "Platform engineering, API development, web development and mobile apps",
-            img: require("../assets/img/html-fade.png"),
-            url: "courses/web",
-            bgColor: "#051934" 
-        },
-        {
-            id: 2,
-            title: "Video game development",
-            subtitle: unityLogo,
-            img: require("../assets/img/fantasy.jpg"),
-            url: "courses/unity"
-        },
+    const data: Panel[] = [
         {
             id: 3,
-            title: "Machine Learning",
-            subtitle: "Give your students the skills they need for the modern world",
-            img: require("../assets/img/fantasy.jpg"),
-            url: "courses/teacher"
+            title: "Join the Data Revolution",
+            subtitle: "Helping enterprises achieve digital transformation",
+            img: require("../assets/img/visualize-data.jpg"),
+            url: "",
         },
         {
             id: 4,
-            title: "Data Analytics",
-            subtitle: "Write your first line of code right now!",
-            img: require("../assets/img/fantasy.jpg"),
-            url: "courses/web"
+            title: "Unified Data Science and Analytics",
+            subtitle: "Great Data Science starts with great data",
+            img: require("../assets/img/graph-network.jpg"),
+            url: "",
         },
-    
+        {
+            id: 1,
+            title: "Full stack development",
+            subtitle: "API development, Applications and Cloud Native Platforming",
+            img: require("../assets/img/html-fade.png"),
+            bgColor: "#051934",
+            url: "",
+        },  
     ]
-    return (
 
+    return (
         <Slider {...settings}>
             {data.map((panel) => (
                 <div key={panel.id}> 
-                    {panel.title}
+                    <ImagePanel  img={panel.img} bgColor={panel.bgColor}>
+                        <Typography variant="h2" component='h1' gutterBottom>{panel.title}</Typography>
+                        <Typography variant='h5' component='h3'>{panel.subtitle}</Typography>
+                    </ImagePanel>
                 </div>
             ))}
         </Slider>
-
-        // <Slider {...settings}>
-        //     {data.map((panel) => (
-        //         <div key={panel.id}> 
-        //             <ImagePanel  img={panel.img} className="white overlay-50" bgColor={panel.bgColor}>
-        //                 <h1 className="margin-bottom-sm">{panel.title}</h1>
-        //                 <h3 className="margin-bottom-lg">{panel.subtitle}</h3>
-        //                 {/* <ArrowBox url={panel.url}/> */}
-        //             </ImagePanel>
-        //         </div>
-        //     ))}
-        // </Slider>
     )
 }
 

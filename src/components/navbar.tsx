@@ -27,7 +27,7 @@ export const Navbar = () => {
                 <Toolbar>
                     <Link to="/" className={classes.title}>
                         <Typography variant="h6" >
-                            CoderLab
+                            CODERLAB
                         </Typography>
                     </Link>
                     <Link to="/about" className={classes.link}>

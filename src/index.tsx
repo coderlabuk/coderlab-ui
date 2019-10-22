@@ -8,6 +8,10 @@ import { theme } from './theme';
 import { Routes } from './components';
 
 
+// require('./styles/main.scss')
+require("slick-carousel/slick/slick.scss")
+require("slick-carousel/slick/slick-theme.scss")
+
 const Application = (
     <ThemeProvider theme={theme}>
       <CssBaseline />
