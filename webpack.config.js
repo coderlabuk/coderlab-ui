@@ -96,6 +96,10 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
 
+    devServer: {
+        historyApiFallback: true,
+    }
+
     // externals: {
     //     "react": "React",
     //     "react-dom": "ReactDOM"

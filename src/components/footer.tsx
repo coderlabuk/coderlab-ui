@@ -1,15 +1,10 @@
 import * as React from 'react'
-import { Typography, makeStyles } from '@material-ui/core'
-import {marginLg, marginXs} from '../styles'
-import {LinkedIn, Email} from '@material-ui/icons'
+import { Typography, Grid, Link, makeStyles } from '@material-ui/core'
+import {LinkedIn, Email } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
     container: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'start',
-        justifyContent: 'space-evenly',
-        margin: marginLg,
+        margin: theme.spacing(4),
     },
     row: {
         display: 'flex',
@@ -17,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'start',
     },
     contactDetail: {
-        marginLeft: marginXs,
+        marginLeft: theme.spacing(1),
     }
 }))
 
@@ -25,13 +20,13 @@ const useStyles = makeStyles(theme => ({
 const Address = () => {
 
     return (
-        <div>
+        <Grid item xs={12} sm={4}>
             <Typography>London (Head Office)</Typography>
             <Typography>Kemp House </Typography>
             <Typography>160 City Road</Typography>
             <Typography>London</Typography>
             <Typography>EC1V 2NX</Typography>
-        </div>
+        </Grid>
     )
 }
 
@@ -40,20 +35,22 @@ const ContactDetails = () => {
     const styles = useStyles()   
 
     return (
-        <div>
+        <Grid item xs={12} sm={4}>
             <div className={styles.row}>
                 <Email />
-                <Typography className={styles.contactDetail}>
+                <Link href="mailto:info@coderlab.co.uk" 
+                      className={styles.contactDetail}>
                     info@coderlab.co.uk
-                </Typography>
+                </Link>
             </div>
             <div className={styles.row}>
                 <LinkedIn />
-                <Typography className={styles.contactDetail}>
-                    linkedin.com/coderlab-ltd
-                </Typography>
+                <Link href="https://linkedin.com/coderlab-ltd" 
+                      className={styles.contactDetail}>
+                    linkedin
+                </Link>
             </div>
-        </div>
+        </Grid>
     )
 }
 
@@ -61,10 +58,10 @@ export const Footer = () => {
     const styles = useStyles()   
 
     return (
-        <div className={styles.container}>
+        <Grid container justify="space-evenly" spacing={3} className={styles.container}>
             <Address />
             <ContactDetails />
-        </div>
+        </Grid>
     )
 }
 

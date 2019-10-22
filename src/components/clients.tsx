@@ -6,30 +6,40 @@ import { Typography, Grid, makeStyles } from '@material-ui/core';
 interface ClientsProps {
 }
 
+
 interface LogoProps {
     url: string
 }
 
 
 const logoStyles = makeStyles(theme => ({
+    gridContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
     logo: (props: LogoProps) => ({
         backgroundColor: "transparent",
         backgroundImage: `url(${props.url})`,
-        backgroundSize: "cover",
+        backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        height: "200px",
-        width: "100%"
+        border: "none",
+        height: "70px",
+        width: "200px",
     })
 }))
 
+
 const clientsStyles = makeStyles(theme => ({
+    title: {
+        marginBottom: theme.spacing(5),
+    },
     container: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'start',
-        margin: theme.spacing(2),
+        margin: theme.spacing(3),
     },
 }))
 
@@ -38,26 +48,27 @@ export const Logo: FunctionComponent<LogoProps> = (props) => {
     const styles = logoStyles(props)   
 
     return (
-        <img className={styles.logo} />
+        <Grid item className={styles.gridContainer} xs={12} sm={6} md={3}>
+            <div className={styles.logo} />
+        </Grid>       
     )
 }
+
 
 export const Clients: FunctionComponent<ClientsProps> = (props) => {
     const styles = clientsStyles()   
 
-    const logos = [
-        require('../assets/logo/sainsburys.png'),
-    ]
-
-
     return (
         <div className={styles.container}>
-            <Typography variant='h3' component='h3'>Our clients</Typography>
-            <Grid>
-            {logos.map(url => (
-                <Logo url={url} />
-            ))}
-        </Grid>
+            <Typography variant='h4' component='h4' className={styles.title}>
+                Our clients
+            </Typography>
+            <Grid container spacing={3}>
+                <Logo url={require('../assets/logo/sainsburys.png')} />
+                <Logo url={require('../assets/logo/citysprint.png')} />
+                <Logo url={require('../assets/logo/peerpay.png')} />
+                <Logo url={require('../assets/logo/snap-hr.jpeg')} />
+            </Grid>
         </div>
     )
 }
