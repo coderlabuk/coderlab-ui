@@ -4,7 +4,8 @@ import {LinkedIn, Email } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
     container: {
-        margin: theme.spacing(4),
+        padding: theme.spacing(4),
+        backgroundColor: theme.palette.grey['300']
     },
     row: {
         display: 'flex',

@@ -61,7 +61,7 @@ export const ImageSlider = (props: any) => {
         dots: true,
         infinite: true,
         speed: 400,
-        autoplay: false,
+        autoplay: true,
         pauseOnHover: false
     };
 

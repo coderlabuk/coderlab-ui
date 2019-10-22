@@ -1,19 +1,12 @@
-import red from '@material-ui/core/colors/red'
 import { createMuiTheme } from '@material-ui/core/styles'
+// import blue from '@material-ui/core/colors/blue'
+import cyan from '@material-ui/core/colors/cyan'
+import pink from '@material-ui/core/colors/pink';
+
 
 export const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: '#556cd6',
-    },
-    secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      default: '#fff',
-    },
+    primary: cyan,
+    secondary: pink,
   },
 });
