@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     form: {
         maxWidth: '700px',
         width: "100%",
+        marginBottom: theme.spacing(7),
     },
     submit: {
         marginLeft: 'auto',
@@ -62,7 +63,7 @@ const Form = () => {
                 id="filled-full-width"
                 multiline={true}
                 rows={8}
-                label="Your query"
+                label="Comments"
                 style={{ margin: 8 }}
                 placeholder=""
                 helperText=""
