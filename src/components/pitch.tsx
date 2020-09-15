@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'; 
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 import { GridJustification } from '@material-ui/core/grid';
+import dataFace from '../assets/img/data-face.jpg';
+import dataNet from '../assets/img/data-net.jpg';
+
 
 interface Pitch {
     title: string
@@ -46,7 +49,7 @@ const PitchPanel: FunctionComponent<Pitch> = (props) => {
                     <Typography variant="h4" gutterBottom>
                         {props.title}
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography>
                         {props.description}
                     </Typography>
                 </Grid>
@@ -61,16 +64,16 @@ export const PitchPanels: FunctionComponent<PitchProps> = () => {
         {
             title: "Data Driven Development",
             description: `Building a data-driven organisation starts with listening to \
-            your data and what it is telling you. Everything else will follow from that.`,
-            img: require('../assets/img/data-driven.jpg'),
+            what your data is saying.`,
+            img: dataFace,
             justify: "flex-start",
             gradientDirection: "right",
         },
         {
             title: "Data Quality before Data Science",
-            description: `Data quality is the number one issue that we see preventing clients from\
-                achieving their true potential. Ask yourself honestly, do you trust your data?`,
-            img: require('../assets/img/shards.jpeg'),
+            description: `Data quality is the number one issue that we see blocking businesses. \
+            Ask yourself honestly, do you trust your data?`,
+            img: dataNet,
             justify: "flex-end",
             gradientDirection: "left",
         }

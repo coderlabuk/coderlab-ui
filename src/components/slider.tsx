@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'; 
 import Slider from 'react-slick';
 import { Typography, makeStyles } from '@material-ui/core'
+import graphNetwork from "../assets/img/graph-network.jpg";
+import htmlFade from "../assets/img/html-fade.png";
+import visualizeData from "../assets/img/visualize-data.jpg";
 
 interface Panel {
     id: number
@@ -70,21 +73,21 @@ export const ImageSlider = (props: any) => {
             id: 3,
             title: "Join the Data Revolution",
             subtitle: "Helping enterprises achieve digital transformation",
-            img: require("../assets/img/visualize-data.jpg"),
+            img: visualizeData,
             url: "",
         },
         {
             id: 4,
             title: "Unified Data Science and Analytics",
             subtitle: "Great Data Science starts with great data",
-            img: require("../assets/img/graph-network.jpg"),
+            img: graphNetwork,
             url: "",
         },
         {
             id: 1,
             title: "Full stack development",
-            subtitle: "API development, Applications and Cloud Native Platforming",
-            img: require("../assets/img/html-fade.png"),
+            subtitle: "APIs, Application Development and Cloud Native Platforming",
+            img: htmlFade,
             bgColor: "#051934",
             url: "",
         },  

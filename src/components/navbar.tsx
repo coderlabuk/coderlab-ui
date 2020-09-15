@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link } from "react-router-dom"
 import { AppBar, Toolbar, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import logo from '../assets/logo/coderlab-caps.png'
 
 
 const useStyles = makeStyles(theme => ({
@@ -9,7 +10,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     appBar: {
-        backgroundColor: theme.palette.primary.dark
+        backgroundColor: theme.palette.primary.light
     },
     link: {
         textDecoration: "none",
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
     logo: {
         backgroundColor: "transparent",
-        backgroundImage: `url(${require('../assets/logo/coderlab-caps.png')})`,
+        backgroundImage: `url(${logo})`,
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -57,9 +58,6 @@ export const Navbar = () => {
                     <div className={styles.right}>
                         <Link to="/about" className={styles.link}>
                             <Button>About</Button>
-                        </Link>
-                        <Link to="/contact" className={styles.link}>
-                            <Button>Contact</Button>
                         </Link>
                     </div>
                 </Toolbar>

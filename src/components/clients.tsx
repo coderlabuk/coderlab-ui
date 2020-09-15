@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'; 
 import { Typography, Grid, makeStyles } from '@material-ui/core';
-// import {marginLg } from '../styles'
+import sainsburys from '../assets/logo/sainsburys.png';
+import citysprint from '../assets/logo/citysprint.png';
+import peerpay from '../assets/logo/peerpay.png';
+import snap from '../assets/logo/snap-hr.jpeg';
 
 
 interface ClientsProps {
@@ -64,10 +67,10 @@ export const Clients: FunctionComponent<ClientsProps> = (props) => {
                 Our clients
             </Typography>
             <Grid container spacing={3}>
-                <Logo url={require('../assets/logo/sainsburys.png')} />
-                <Logo url={require('../assets/logo/citysprint.png')} />
-                <Logo url={require('../assets/logo/peerpay.png')} />
-                <Logo url={require('../assets/logo/snap-hr.jpeg')} />
+                <Logo url={sainsburys} />
+                <Logo url={citysprint} />
+                <Logo url={peerpay} />
+                <Logo url={snap} />
             </Grid>
         </div>
     )
