@@ -1,5 +1,8 @@
 import React, { FunctionComponent } from 'react'; 
 import { Typography, Grid, makeStyles } from '@material-ui/core';
+import rob from '../assets/staff/rob-tucker.jpg';
+import simon from '../assets/staff/simon-van-blerk.jpg';
+
 
 interface StaffProps {}
 
@@ -72,7 +75,7 @@ export const Staff: FunctionComponent<StaffProps> = () => {
             title: "Director",
             description: `Rob is a Data Scientist with a love for pure maths, linguistics \ 
                 and compiler design. He also plays piano and has a dog named Izzy.`,
-            img: require('../assets/staff/rob-tucker.jpg'),
+            img: rob,
         },
         {
             id: 2,
@@ -81,7 +84,7 @@ export const Staff: FunctionComponent<StaffProps> = () => {
             description: `Simon is a web developer with a focus on user-interfaces and design.\
                 We once tried to count how many websites Simon has built but we gave up \
                 counting around 57.`,
-            img: require('../assets/staff/simon-van-blerk.jpg'),
+            img: simon,
         },
     ]
 
