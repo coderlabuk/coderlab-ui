@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route,
 } from "react-router-dom";
 import { AppContainer } from './app'
@@ -10,20 +10,14 @@ import { About } from './about'
 import { Contact } from './contact'
 
 
-export const Routes = () => (
+export const AppRoutes = () => (
     <Router>
         <AppContainer>
-            <Switch>
-                <Route exact path="/">
-                    <Landing />
-                </Route>
-                <Route path="/about">
-                    <About />
-                </Route>
-                <Route path="/contact">
-                    <Contact />
-                </Route>
-            </Switch>
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
         </AppContainer>
     </Router>
 )

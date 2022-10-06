@@ -59,7 +59,7 @@ export const Footer = () => {
     const styles = useStyles()   
 
     return (
-        <Grid container justify="space-evenly" spacing={3} className={styles.container}>
+        <Grid container justifyContent="space-evenly" spacing={3} className={styles.container}>
             <Address />
             <ContactDetails />
         </Grid>

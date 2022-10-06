@@ -6,10 +6,11 @@ import dataNet from '../assets/img/data-net.jpg';
 
 
 interface Pitch {
+    key: string
     title: string
     description: string
     img: string
-    justify: GridJustification
+    justifyContent: GridJustification
     gradientDirection: string
 }
 
@@ -44,7 +45,7 @@ const PitchPanel: FunctionComponent<Pitch> = (props) => {
 
     return (
         <div className={styles.image}>
-            <Grid container justify={props.justify} alignItems="center">
+            <Grid container justifyContent={props.justifyContent} alignItems="center">
                 <Grid item xs={12} sm={6} md={4} lg={4} className={styles.textContainer}>
                     <Typography variant="h4" gutterBottom>
                         {props.title}
@@ -62,19 +63,21 @@ const PitchPanel: FunctionComponent<Pitch> = (props) => {
 export const PitchPanels: FunctionComponent<PitchProps> = () => {
     const pitches: Pitch[] = [
         {
+            key: "data-driven",
             title: "Data Driven Development",
             description: `Building a data-driven organisation starts with listening to \
             what your data is saying.`,
             img: dataFace,
-            justify: "flex-start",
+            justifyContent: "flex-start",
             gradientDirection: "right",
         },
         {
+            key: "data-quality",
             title: "Data Quality before Data Science",
             description: `Data quality is the number one issue that we see blocking businesses. \
             Ask yourself honestly, do you trust your data?`,
             img: dataNet,
-            justify: "flex-end",
+            justifyContent: "flex-end",
             gradientDirection: "left",
         }
     ]

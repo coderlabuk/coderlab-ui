@@ -47,7 +47,12 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     "style-loader",
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false,
+                        },
+                    },
                     "css-loader",
                     "sass-loader"
                 ]
@@ -71,22 +76,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'CoderLab',
             template: './src/index.ejs', 
-            // favicon: '../src/assets/img/favicon.png',
-            cdns: [],
-            metas: [
-                {"charset": "utf-8"},
-                {"name": "author"},
-                {"http-equiv": "x-ua-compatible", "content": "ie=edge"},
-                {"name": "viewport", "content": "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"}
-            ]
+            favicon: './src/assets/logo/favicon-white.png',
         }),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // all options are optional
-            filename: 'main.css',
-            chunkFilename: '[id].css',
-            ignoreOrder: false, // Enable to remove warnings about conflicting order
-          }),
+        new MiniCssExtractPlugin(),
         // new BundleAnalyzerPlugin()
     ],
 
@@ -98,10 +90,10 @@ module.exports = {
 
     devServer: {
         historyApiFallback: true,
-    }
+    },
 
-    // externals: {
-    //     "react": "React",
-    //     "react-dom": "ReactDOM"
-    // }
+    externals: {
+        'react': 'React',
+        'react-dom' : 'ReactDOM'
+    }
 };

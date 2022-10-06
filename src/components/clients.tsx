@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 import sainsburys from '../assets/logo/sainsburys.png';
 import citysprint from '../assets/logo/citysprint.png';
-import peerpay from '../assets/logo/peerpay.png';
-import snap from '../assets/logo/snap-hr.jpeg';
+import astrazeneca from '../assets/logo/astrazeneca.png';
+import convex from '../assets/logo/convex.png';
 
 
 interface ClientsProps {
@@ -41,7 +41,7 @@ const clientsStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'start',
+        justifyContent: 'center',
         margin: theme.spacing(3),
     },
 }))
@@ -69,8 +69,8 @@ export const Clients: FunctionComponent<ClientsProps> = (props) => {
             <Grid container spacing={3}>
                 <Logo url={sainsburys} />
                 <Logo url={citysprint} />
-                <Logo url={peerpay} />
-                <Logo url={snap} />
+                <Logo url={astrazeneca} />
+                <Logo url={convex} />
             </Grid>
         </div>
     )
