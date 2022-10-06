@@ -4,18 +4,15 @@
 
     <base href="/">
     <!-- metas -->
-    <% _.each(htmlWebpackPlugin.options.metas, function(meta) { %>
-    <meta <% Object.keys(meta).forEach(function(attr) {%>${ attr }="${ meta[attr] }" <% }); %>/>
-    <% }); %>
-
-
-    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="CoderLab">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="shortcut icon" type="image/x-icon" href="<%=htmlWebpackPlugin.files.favicon%>">
 
-    <% _.each(htmlWebpackPlugin.options.cdns, function(cdn) { %>
-    <script src=${ cdn.src }></script>
-    <% }); %>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     
     <style>
         .loader,

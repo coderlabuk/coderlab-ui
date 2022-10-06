@@ -1,25 +1,22 @@
 {
-    "compilerOptions": {
-        "baseUrl": "./src",
-        "outDir": "./dist/",
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noImplicitAny": true,
-        "preserveConstEnums": true,
-        "removeComments": true,
-        "sourceMap": true,
-        "strictNullChecks": true,
-        "lib": ["es6", "dom"],
-        "target": "ES6",
-        "jsx": "react",
-        "typeRoots" : ["node_modules/@types", "src/types"],
-    },
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist/",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "lib": ["es6", "dom"],
+    "target": "ES6",
+    "jsx": "react",
+    "typeRoots": ["node_modules/@types", "src/types"]
+  },
 
-    "include": [
-        "./src/**/*.ts",
-        "./src/**/*.d.ts"
-    ]
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts"]
 }

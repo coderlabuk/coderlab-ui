@@ -1,0 +1,19 @@
+name: Prod deployment
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    environment: production
+    steps:
+    - name: Build
+      run: npm run build
+
+    - name: List dist dir
+      run: ls -la dist
+
+    - name: Publish
+      run: . scripts/deploy.sh
