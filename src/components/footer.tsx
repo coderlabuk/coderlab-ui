@@ -1,21 +1,6 @@
 import * as React from 'react'
-import { Typography, Grid, Link, makeStyles } from '@material-ui/core'
-import { LinkedIn, Email } from '@material-ui/icons'
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: theme.spacing(4),
-    backgroundColor: theme.palette.grey['100'],
-  },
-  row: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'start',
-  },
-  contactDetail: {
-    marginLeft: theme.spacing(1),
-  },
-}))
+import { Typography, Grid, Link, styled } from '@mui/material'
+import { LinkedIn, Email } from '@mui/icons-material'
 
 const Address = () => {
   return (
@@ -29,32 +14,36 @@ const Address = () => {
   )
 }
 
-const ContactDetails = () => {
-  const styles = useStyles()
+const Row = styled('div')(() => ({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'start',
+}))
 
+const ContactDetails = () => {
+  const contactDetail = { ml: 1, color: 'black' }
   return (
     <Grid item xs={12} sm={4}>
-      <div className={styles.row}>
+      <Row>
         <Email />
-        <Link href='mailto:info@coderlab.co.uk' className={styles.contactDetail}>
+        <Link href='mailto:info@coderlab.co.uk' sx={contactDetail}>
           info@coderlab.co.uk
         </Link>
-      </div>
-      <div className={styles.row}>
+      </Row>
+      <Row>
         <LinkedIn />
-        <Link href='https://linkedin.com/coderlab-ltd' className={styles.contactDetail}>
+        <Link href='https://linkedin.com/coderlab-ltd' sx={contactDetail}>
           linkedin
         </Link>
-      </div>
+      </Row>
     </Grid>
   )
 }
 
 export const Footer = () => {
-  const styles = useStyles()
-
+  const container = { p: 4, bgcolor: 'primary.main' }
   return (
-    <Grid container justifyContent='space-evenly' spacing={3} className={styles.container}>
+    <Grid container justifyContent='space-evenly' spacing={3} sx={container}>
       <Address />
       <ContactDetails />
     </Grid>

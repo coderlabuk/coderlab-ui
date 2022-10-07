@@ -4,10 +4,10 @@ import { Footer } from './footer'
 
 export const AppContainer = (props: any) => {
   return (
-    <div>
+    <>
       <Navbar />
       {props.children}
       <Footer />
-    </div>
+    </>
   )
 }

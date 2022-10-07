@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { ThemeProvider } from '@material-ui/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './theme'
 
 import { AppRoutes } from './components'

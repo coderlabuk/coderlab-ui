@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Typography, Grid, makeStyles } from '@material-ui/core'
+import { Typography, Grid, styled } from '@mui/material'
 import sainsburys from '../assets/logo/sainsburys.png'
 import citysprint from '../assets/logo/citysprint.png'
 import astrazeneca from '../assets/logo/astrazeneca.png'
@@ -11,13 +11,9 @@ interface LogoProps {
   url: string
 }
 
-const logoStyles = makeStyles((theme) => ({
-  gridContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  logo: (props: LogoProps) => ({
-    backgroundColor: 'transparent',
+export const Logo: FunctionComponent<LogoProps> = (props) => {
+  const LogoInner = styled('div')(() => ({
+    bgcolor: 'transparent',
     backgroundImage: `url(${props.url})`,
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
@@ -25,38 +21,27 @@ const logoStyles = makeStyles((theme) => ({
     border: 'none',
     height: '70px',
     width: '200px',
-  }),
-}))
-
-const clientsStyles = makeStyles((theme) => ({
-  title: {
-    marginBottom: theme.spacing(5),
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: theme.spacing(3),
-  },
-}))
-
-export const Logo: FunctionComponent<LogoProps> = (props) => {
-  const styles = logoStyles(props)
+  }))
 
   return (
-    <Grid item className={styles.gridContainer} xs={12} sm={6} md={3}>
-      <div className={styles.logo} />
+    <Grid item sx={{ display: 'flex', justifyContent: 'center' }} xs={12} sm={6} md={3}>
+      <LogoInner />
     </Grid>
   )
 }
 
-export const Clients: FunctionComponent<ClientsProps> = (props) => {
-  const styles = clientsStyles()
+const ClientsContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  margin: theme.spacing(3),
+}))
 
+export const Clients: FunctionComponent<ClientsProps> = (props) => {
   return (
-    <div className={styles.container}>
-      <Typography variant='h4' component='h4' className={styles.title}>
+    <ClientsContainer>
+      <Typography variant='h4' component='h4' sx={{ mb: 5 }}>
         Our clients
       </Typography>
       <Grid container spacing={3}>
@@ -65,6 +50,6 @@ export const Clients: FunctionComponent<ClientsProps> = (props) => {
         <Logo url={astrazeneca} />
         <Logo url={convex} />
       </Grid>
-    </div>
+    </ClientsContainer>
   )
 }
